@@ -105,9 +105,9 @@ const BooksList = () => {
 
                     </TabPanel>
                     <TabPanel>
-                        <div className="flex flex-col max-w-3xl p-6 space-y-4 sm:p-10 dark:bg-gray-50 dark:text-gray-800">
+                        <div className="flex flex-col  p-6 space-y-4 sm:p-10 dark:bg-gray-50 dark:text-gray-800">
 
-                            <ul className="flex flex-col divide-y dark:divide-gray-300">
+                            <ul className="flex flex-col  ">
                                 {
 
                                     addbooks.map((wishlist, idx) => <Wishlist key={idx} wishlist={wishlist}></Wishlist>)

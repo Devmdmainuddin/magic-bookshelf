@@ -1,4 +1,10 @@
 
-p{
-  color:  #131313
+
+.divide-y > :not([hidden]) ~ :not([hidden]) {
+  --tw-divide-y-reverse: 0;
+  border-top-width: none;
+  border-bottom-width: none;
+}
+a{
+  color:#328eff
 }

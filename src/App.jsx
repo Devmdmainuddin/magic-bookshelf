@@ -14,7 +14,7 @@ function App() {
       <div>
       <Header></Header>
       </div>
-      <div className='md:min-h-[calc(100vh-302px)]'>
+      <div className='md:min-h-[calc(100vh-302px)] max-w-[1169px] mx-auto'>
       {navigation.state === "loading" ? <FidgetSpinner
               visible={true}
               height="80"
