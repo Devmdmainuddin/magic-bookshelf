@@ -15,12 +15,12 @@ const Books = () => {
 
     return (
         <div>
-            <div  className="grid grid-cols-3 gap-6">
+            <div  className="grid lg:grid-cols-3 md:grid-cols-2 gap-6 ">
             {
                   books.slice(0,dataLength).map(book =><Book key= {book.id} book={book}></Book>)  
                 }
             </div>
-            <div className={dataLength === books.length ? 'hidden' : ''}>
+            <div className={dataLength === books.length ? 'hidden' : 'text-center mt-6'}>
                 <button
                     onClick={() => setDataLength(books.length)}
                     className="btn btn-primary">Show All Books</button>

@@ -1,6 +1,5 @@
 import { useLoaderData, useParams } from "react-router-dom";
 import { FaRegStar } from "react-icons/fa6";
-import { Link } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {saveStoreData,getStoreData} from '../utility/localstorage'
@@ -16,8 +15,6 @@ const BooksDetails = () => {
     const handleapply = ()=>{
         const idInt = parseInt(bookId);
         const initialbook = getStoreData();
-
-  
             const book = initialbook.find(book => book == idInt);
             console.log(22,book)
             if(book ){
@@ -44,18 +41,19 @@ const BooksDetails = () => {
     return (
         <section className="p-4 lg:p-8 dark:bg-gray-100 dark:text-gray-800">
 	<div className="container mx-auto space-y-12">
-		<div className="flex flex-col overflow-hidden rounded-md shadow-sm lg:flex-row">
-			<img src={book.image} alt="" className="h-80 dark:bg-gray-500 aspect-video" />
-			<div className="flex flex-col justify-center flex-1 p-6 dark:bg-gray-50">
+		<div className="flex flex-col items-center rounded-xl overflow-hidden  shadow-sm lg:flex-row">
+			<img src={book.image} alt="" className="h-80 rounded-xl dark:bg-gray-500 aspect-video" />
+			<div className="flex flex-col  justify-center flex-1 p-6 dark:bg-gray-50">
 				
-				<h3 className="text-3xl font-bold">{book.bookName}</h3>
-                <p className="text-[#131313cc]">By : {book.publisher}</p>
-                <p className="text-[#131313cc]">{book.category}</p>
-                
-				<p className="my-6 dark:text-gray-600">{book.review}</p>
-                <h3 className="flex gap-x-2">tags : {
+				<h3 className="text-[40px] leading-8 font-bold">{book.bookName}</h3>
+                <p className="text-[#131313cc] text-[20px] font-medium mt-6">By : {book.publisher}</p>
+                <hr className="my-4" />
+                <p className="text-[#131313cc] text-[20px]  font-medium">{book.category}</p>
+                <hr className="my-4 text-[#131313cc]" />
+				<p className="my-6 dark:text-gray-600 text-[16px] ">review : {book.review}</p>
+                <div className="flex gap-x-2 "> <h2 className="font-bold">tags :</h2> <p className="flex gap-x-2"> {
                 book.tags.map((tag,idx) =><span key={idx}><a href="">{tag}</a></span>)
-               }</h3>
+               }</p> </div>
                <hr className="my-6" />
                 <div className="">
                     <p className="flex gap-x-2 text-lg text-[#131313b3] font-normal mt-3">Number of Pages : <span className="text-[#131313] font-semibold">{book.totalPages}</span></p>

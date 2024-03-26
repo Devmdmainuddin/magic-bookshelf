@@ -33,7 +33,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/readbooks",
-        element: <PagesToRead></PagesToRead>  ,
+        element: <PagesToRead></PagesToRead> ,
+        loader: () =>fetch('/FakeBooks.json')
       },
     ],
   },

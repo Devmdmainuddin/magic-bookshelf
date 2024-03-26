@@ -17,7 +17,7 @@ const Header = () => {
                 >
                 
                     <span className='ml-2 text-[28px] font-bold tracking-wide text-[#131313] '>
-                        HeroGadget
+                       Magic Bookshelf
                     </span>
                 </Link>
                 <ul className='items-center hidden space-x-8 lg:flex gap-x-4'>
@@ -53,7 +53,8 @@ const Header = () => {
                         </NavLink>
                     </li>
                 </ul>
-                <div className="buttons">
+                <div className="buttons lg:flex
+                hidden">
                     <Link to='/signin' className="py-[14px] px-[17px] bg-[#23BE0A] rounded-lg text-white">sign in </Link>
                     <Link to='/signup' className="ml-4 py-[14px] px-[17px] bg-[#59C6D2] rounded-lg text-white">sign up </Link>
                 </div>

@@ -1,10 +1,10 @@
-import { useEffect } from "react";
+import PropTypes from 'prop-types';
 import { CiLocationOn } from "react-icons/ci";
 import { IoIosContact } from "react-icons/io";
 
 
 const SingleBooks = ({ book }) => {
-	const { bookId, bookName,rating, image,category, publisher, totalPages, yearOfPublishing } = book
+	const {  bookName,rating, image,category, publisher, totalPages, yearOfPublishing } = book
 
 	return (
 		<li className="flex flex-col py-6 sm:flex-row sm:justify-between border-2 my-6 p-4">
@@ -51,5 +51,7 @@ const SingleBooks = ({ book }) => {
 
 	);
 };
-
+SingleBooks.propTypes = {
+    book:PropTypes.object,
+}
 export default SingleBooks;

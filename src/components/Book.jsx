@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Book = ({book}) => {
     const {bookId,bookName,image,publisher,category,rating}=book
     return (
-        <Link to={`/book/${bookId}`} className="flex flex-col max-w-lg p-6 space-y-6 overflow-hidden  border-2 rounded-2xl dark:bg-gray-50 dark:text-gray-800">
+        <Link to={`/book/${bookId}`} className="flex flex-col mx-auto max-w-lg p-6 space-y-6 overflow-hidden  border-2 rounded-2xl dark:bg-gray-50 dark:text-gray-800">
 
             <div>
                 <img src={image} alt="" className="object-cover w-full mb-4 h-60 sm:h-96 dark:bg-gray-500 rounded-2xl" />
