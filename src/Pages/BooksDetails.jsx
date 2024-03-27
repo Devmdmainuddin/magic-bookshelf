@@ -1,6 +1,10 @@
 import { useLoaderData, useParams } from "react-router-dom";
 import { FaRegStar } from "react-icons/fa6";
+<<<<<<< HEAD
 import { ToastContainer} from 'react-toastify';
+=======
+import { ToastContainer,toast } from 'react-toastify';
+>>>>>>> aa6d981cc713993565e085a0b416e47e186b9f28
 import 'react-toastify/dist/ReactToastify.css';
 import {saveStoreData,savereadbooksData} from '../utility/localstorage'
 
@@ -14,6 +18,7 @@ const BooksDetails = () => {
    
  
     const handleapply = ()=>{
+<<<<<<< HEAD
         const id = parseInt(bookId);
         const readbook = books.find(book => book.bookId == id);
       
@@ -21,12 +26,30 @@ const BooksDetails = () => {
                 savereadbooksData(id)
                 saveStoreData(id)
             }
+=======
+        const idInt = parseInt(bookId);
+        const initialbook = getStoreData();
+            const book = initialbook.find(book => book == idInt);
+            console.log(22,book)
+            if(book ){
+                console.log(24,book)
+                saveStoreData(idInt)
+                
+            }
+    
+>>>>>>> aa6d981cc713993565e085a0b416e47e186b9f28
              
     }
     const handalAddToWishlist = ()=>{
         const idInt = parseInt(bookId);
+<<<<<<< HEAD
         const book = books.find(book => book.bookId == idInt);
             if (book) {
+=======
+            const book = books.find(book => book.bookId == idInt);
+            if (book) {
+                toast.error('book alredey in  wishlist !')
+>>>>>>> aa6d981cc713993565e085a0b416e47e186b9f28
                 saveStoreData(idInt)
             } 
     }

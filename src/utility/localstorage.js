@@ -11,8 +11,15 @@ const getStoreData = () =>{
 const saveStoreData = id =>{
     const storedDatas = getStoreData();
     const exists = storedDatas.find(bookId => bookId === id);
+<<<<<<< HEAD
     if (exists) {
       return  toast.error('book alredey in  wishlist !')
+=======
+    if(!exists){
+        toast.success('books ar added wishlist Book')
+        storedDatas.push(id)
+        localStorage.setItem('storebooks', JSON.stringify(storedDatas))  
+>>>>>>> aa6d981cc713993565e085a0b416e47e186b9f28
     }
     storedDatas.push(id)
     localStorage.setItem('storebooks', JSON.stringify(storedDatas))
