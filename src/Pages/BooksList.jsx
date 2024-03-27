@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { getStoreData } from '../utility/localstorage'
 import SingleBooks from '../components/SingleBooks';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Wishlist from '../components/Wishlist';
 
@@ -41,7 +41,7 @@ const BooksList = () => {
                
                 if (book) {
                     storebooks.push(book)
-                    toast('books ar added!')
+                  
                 }
             }
             setaddbooks(storebooks);

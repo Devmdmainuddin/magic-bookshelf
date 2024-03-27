@@ -1,6 +1,6 @@
 import { useLoaderData, useParams } from "react-router-dom";
 import { FaRegStar } from "react-icons/fa6";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer,toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {saveStoreData,getStoreData} from '../utility/localstorage'
 
@@ -20,20 +20,18 @@ const BooksDetails = () => {
             if(book ){
                 console.log(24,book)
                 saveStoreData(idInt)
-                toast.success('books ar added Listed Book')
-            }else{
-                toast.error('book alredey in  read !') 
-            } 
+                
+            }
     
              
     }
     const handalAddToWishlist = ()=>{
         const idInt = parseInt(bookId);
             const book = books.find(book => book.bookId == idInt);
-            if (!book) {
+            if (book) {
+                toast.error('book alredey in  wishlist !')
                 saveStoreData(idInt)
-                toast.success('book ar added Wishlist!')
-            } toast.error('book alredey added Wishlist !')  
+            } 
     }
    
 
