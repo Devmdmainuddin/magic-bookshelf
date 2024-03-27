@@ -15,21 +15,41 @@ const BooksList = () => {
     const [addbooks, setaddbooks] = useState([]);
     const [displaybooks, setDisplaybooks] = useState([]);
 
+    // console.log(displaybooks.length)
+
+
+    // for (const id of rating) {
+    //     const book = books.map(book => book.bookId == id);
+    //     if (book) {
+    //         rating.push(book)
+
+    //     }
+    // }
+
+
+    // const rating =displaybooks.map(book=>{book});
+    // console.log(rating)
+
+
     const handlebookData = filter => {
+        const [rating, totalPages, yearOfPublishing] = displaybooks;
+        const rat = rating.rating
+        const total = totalPages.totalPages
+        const year = yearOfPublishing.yearOfPublishing
+        console.log(rat, year, total)
+
         if (filter === 'all') {
-            setDisplaybooks(addbooks);
+            setaddbooks(displaybooks);
         } else if (filter === 'rating') {
-            const rating = addbooks.filter(book => book.rating === 4.5);
-            setDisplaybooks(rating);
-        } else if (filter === `rating ${4.5}`) {
-            const rating = addbooks.filter(book => book.rating === 4.5);
-            setDisplaybooks(rating);
+            const rating = displaybooks.filter(book => book.rating === rat);
+
+            setaddbooks(rating);
         } else if (filter === 'totalPages') {
-            const totalPages = addbooks.filter(book => book.totalPages === 328);
-            setDisplaybooks(totalPages);
+            const totalPages = displaybooks.filter(book => book.totalPages === total);
+            setaddbooks(totalPages);
         } else if (filter === 'yearOfPublishing') {
-            const yearOfPublishing = addbooks.filter(book => book.yearOfPublishing === 1949);
-            setDisplaybooks(yearOfPublishing);
+            const yearOfPublishing = displaybooks.filter(book => book.yearOfPublishing === year);
+            setaddbooks(yearOfPublishing);
         }
     }
     useEffect(() => {
@@ -41,10 +61,7 @@ const BooksList = () => {
                 const book = books.find(book => book.bookId == id);
                 if (book) {
                     storebooks.push(book)
-<<<<<<< HEAD
-=======
-                  
->>>>>>> aa6d981cc713993565e085a0b416e47e186b9f28
+
                 }
             }
             setDisplaybooks(storebooks);
@@ -56,7 +73,7 @@ const BooksList = () => {
                 const book = books.find(book => book.bookId == id);
                 if (book) {
                     readbooks.push(book)
-                    console.log(readbooks)
+
                 }
             }
             setaddbooks(readbooks);
@@ -65,14 +82,14 @@ const BooksList = () => {
 
 
     }, [books])
-   
+
     return (
         <div>
             <div className='my-9 text-center'>
                 <h2 >books</h2>
             </div>
-            <div>
-                <details className="dropdown">
+            <div className='text-center'>
+                <details className="dropdown ">
                     <summary className="m-1 btn">sort by </summary>
                     <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
                         <li onClick={() => handlebookData('all')}><a>All</a></li>
@@ -99,10 +116,10 @@ const BooksList = () => {
                                 }
 
                             </ul>
-                           
+
                             <div className="flex justify-end space-x-4">
-                                <Link to ='/' type="button" className="px-6 py-2 border rounded-md dark:border-violet-600">
-                                         Back <span className="sr-only sm:not-sr-only">to shop</span>
+                                <Link to='/' type="button" className="px-6 py-2 border rounded-md dark:border-violet-600">
+                                    Back <span className="sr-only sm:not-sr-only">to shop</span>
                                 </Link>
                                 <button type="button" className="px-6 py-2 border rounded-md dark:bg-violet-600 dark:text-gray-50 dark:border-violet-600">
                                     <span className="sr-only sm:not-sr-only">Continue to</span>Checkout
@@ -125,12 +142,12 @@ const BooksList = () => {
                                 }
 
                             </ul>
-                           
-                            <div className="flex justify-end space-x-4"> 
-                                <Link to ='/' type="button" className="px-6 py-2 border rounded-md dark:border-violet-600">
-                                         Back <span className="sr-only sm:not-sr-only">to shop</span>
+
+                            <div className="flex justify-end space-x-4">
+                                <Link to='/' type="button" className="px-6 py-2 border rounded-md dark:border-violet-600">
+                                    Back <span className="sr-only sm:not-sr-only">to shop</span>
                                 </Link>
-                                
+
                                 <button type="button" className="px-6 py-2 border rounded-md dark:bg-violet-600 dark:text-gray-50 dark:border-violet-600">
                                     <span className="sr-only sm:not-sr-only">Continue to</span>Checkout
                                 </button>
