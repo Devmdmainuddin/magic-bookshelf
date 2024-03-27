@@ -16,6 +16,8 @@ const options = {}
 const PagesToRead = () => {
     const [addbooks, setaddbooks] = useState([]);
     const books = useLoaderData();
+    const [label,setlabel]= useState([])
+
     useEffect(() => {
         const storebook = getStoreData()
 
@@ -25,20 +27,29 @@ const PagesToRead = () => {
                 const book = books.find(book => book.bookId == id);
                 if (book) {
                     storebooks.push(book)
-
                 }
-
             }
-            // const bookName = addbooks.map(book=>{book.bookName})
-            // const totalPages = addbooks.map(book=>{book.totalPages})
-            // console.log(bookName,totalPages)
+          
             setaddbooks(storebooks)
-            // console.log(addbooks)
-            return 
-
+           
+            return
            
            
-        }}, [books])
+        }
+        if(storebook.length > 0){
+            const bookName=[]
+            for(const book of addbooks){
+                const bookname =book.map(book =>book.bookName == bookname)
+                console.log(bookname)
+                bookName.push(bookname)
+            } 
+            setlabel(bookName)
+            console.log(label)
+            return
+        }
+       
+    
+    }, [books])
 
     const data = {
         labels: ['Jun', 'Jul', 'Aug', 'Jul', 'Aug'],
@@ -50,9 +61,9 @@ const PagesToRead = () => {
 
     return (
         <div>
-
-         { addbooks.map((book,idx) =><div key={idx}><a href="">{book.bookName}</a></div>)}
-
+<h2 className='flex gap-x-1 items-center'> <span>bookname :</span>   { addbooks.map((book,idx) =><span key={idx}><a href="" >{`"${book.bookName}"`}</a></span>)}</h2>
+   <h2 className='flex gap-x-1 items-center'><span>totalPages :</span> { addbooks.map((book,idx) =><span key={idx}><a href="">{`"${book.totalPages}"`}</a></span>)}</h2>     
+       
 
             <Line datasetIdKey='id' data={data} options={options} />
         </div>

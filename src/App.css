@@ -5,3 +5,6 @@
   border-top-width: none;
   border-bottom-width: none;
 }
+.active{
+  @apply border-[#23BE0A] border
+}

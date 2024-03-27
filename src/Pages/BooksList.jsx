@@ -2,11 +2,13 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
-import { getStoreData } from '../utility/localstorage'
+import { getStoreData, getreadbooksData } from '../utility/localstorage'
 import SingleBooks from '../components/SingleBooks';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Wishlist from '../components/Wishlist';
+import { Link } from 'react-router-dom';
+
 
 const BooksList = () => {
     const books = useLoaderData();
@@ -19,7 +21,7 @@ const BooksList = () => {
         } else if (filter === 'rating') {
             const rating = addbooks.filter(book => book.rating === 4.5);
             setDisplaybooks(rating);
-        } else if (filter === `rating ${ 4.5}`) {
+        } else if (filter === `rating ${4.5}`) {
             const rating = addbooks.filter(book => book.rating === 4.5);
             setDisplaybooks(rating);
         } else if (filter === 'totalPages') {
@@ -32,24 +34,34 @@ const BooksList = () => {
     }
     useEffect(() => {
         const storebook = getStoreData()
-        
+        const readbook = getreadbooksData()
         if (books.length > 0) {
             const storebooks = [];
             for (const id of storebook) {
-                
                 const book = books.find(book => book.bookId == id);
-               
                 if (book) {
                     storebooks.push(book)
-                    toast('books ar added!')
                 }
             }
-            setaddbooks(storebooks);
             setDisplaybooks(storebooks);
-            
+
         }
+        if (books.length > 0) {
+            const readbooks = []
+            for (const id of readbook) {
+                const book = books.find(book => book.bookId == id);
+                if (book) {
+                    readbooks.push(book)
+                    console.log(readbooks)
+                }
+            }
+            setaddbooks(readbooks);
+        }
+
+
+
     }, [books])
-    console.log(47,addbooks)
+   
     return (
         <div>
             <div className='my-9 text-center'>
@@ -79,20 +91,15 @@ const BooksList = () => {
 
                             <ul className="flex flex-col divide-y dark:divide-gray-300">
                                 {
-                                    displaybooks.map((book, idx) => <SingleBooks key={idx} book={book} ></SingleBooks>)
+                                    addbooks.map((book, idx) => <SingleBooks key={idx} book={book} ></SingleBooks>)
                                 }
 
                             </ul>
-                            <div className="space-y-1 text-right">
-                                <p>Total amount:
-                                    <span className="font-semibold">357 €</span>
-                                </p>
-                                <p className="text-sm dark:text-gray-600">Not including taxes and shipping costs</p>
-                            </div>
+                           
                             <div className="flex justify-end space-x-4">
-                                <button type="button" className="px-6 py-2 border rounded-md dark:border-violet-600">Back
-                                    <span className="sr-only sm:not-sr-only">to shop</span>
-                                </button>
+                                <Link to ='/' type="button" className="px-6 py-2 border rounded-md dark:border-violet-600">
+                                         Back <span className="sr-only sm:not-sr-only">to shop</span>
+                                </Link>
                                 <button type="button" className="px-6 py-2 border rounded-md dark:bg-violet-600 dark:text-gray-50 dark:border-violet-600">
                                     <span className="sr-only sm:not-sr-only">Continue to</span>Checkout
                                 </button>
@@ -110,20 +117,16 @@ const BooksList = () => {
                             <ul className="flex flex-col  ">
                                 {
 
-                                    addbooks.map((wishlist, idx) => <Wishlist key={idx} wishlist={wishlist}></Wishlist>)
+                                    displaybooks.map((wishlist, idx) => <Wishlist key={idx} wishlist={wishlist}></Wishlist>)
                                 }
 
                             </ul>
-                            <div className="space-y-1 text-right">
-                                <p>Total amount:
-                                    <span className="font-semibold">357 €</span>
-                                </p>
-                                <p className="text-sm dark:text-gray-600">Not including taxes and shipping costs</p>
-                            </div>
-                            <div className="flex justify-end space-x-4">
-                                <button type="button" className="px-6 py-2 border rounded-md dark:border-violet-600">Back
-                                    <span className="sr-only sm:not-sr-only">to shop</span>
-                                </button>
+                           
+                            <div className="flex justify-end space-x-4"> 
+                                <Link to ='/' type="button" className="px-6 py-2 border rounded-md dark:border-violet-600">
+                                         Back <span className="sr-only sm:not-sr-only">to shop</span>
+                                </Link>
+                                
                                 <button type="button" className="px-6 py-2 border rounded-md dark:bg-violet-600 dark:text-gray-50 dark:border-violet-600">
                                     <span className="sr-only sm:not-sr-only">Continue to</span>Checkout
                                 </button>

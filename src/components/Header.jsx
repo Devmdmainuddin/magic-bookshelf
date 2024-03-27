@@ -26,7 +26,7 @@ const Header = () => {
                             to='/'
                             aria-label='Home'
                             title='Home'
-                            className={`${({ isActive }) => (isActive ? 'active border-[#23BE0A]  border rounded-lg ' : 'default')} py-[14px] px-[17px]`}
+                            className={`${({ isActive }) => (isActive ? 'active' : 'default')} rounded-lg py-[12px] px-[17px]`}
                         >
                             Home
                         </NavLink>
@@ -36,7 +36,7 @@ const Header = () => {
                             to='/bookslist'
                             aria-label='Listed Books'
                             title='Listed Books'
-                            className={`${({ isActive }) => (isActive ? 'active border-[#23BE0A]  border  rounded-lg ' : 'default')} py-[14px] px-[17px]`}
+                            className={`${({ isActive }) => (isActive ? 'active' : 'default')} rounded-lg py-[12px] px-[17px]`}
                         >
                             Listed Books
                         </NavLink>
@@ -47,7 +47,7 @@ const Header = () => {
                             to='/readbooks'
                             aria-label='Pages to Read'
                             title='Pages to Read'
-                            className={`${({ isActive }) => (isActive ? 'active border-[#23BE0A]  border  rounded-lg ' : 'default')} py-[14px] px-[17px] `}
+                            className={`${({ isActive }) => (isActive ? 'active' : 'default')} rounded-lg py-[12px] px-[17px] `}
                         >
                             Pages to Read
                         </NavLink>

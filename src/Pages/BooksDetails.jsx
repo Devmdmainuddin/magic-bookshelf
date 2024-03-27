@@ -1,39 +1,34 @@
 import { useLoaderData, useParams } from "react-router-dom";
 import { FaRegStar } from "react-icons/fa6";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import {saveStoreData,getStoreData} from '../utility/localstorage'
+import {saveStoreData,savereadbooksData} from '../utility/localstorage'
 
 
 
 const BooksDetails = () => {
     const books =useLoaderData();
     const {bookId} = useParams();
-    // const idInt = parseInt(bookId);
+  
+
    
-    
+ 
     const handleapply = ()=>{
-        const idInt = parseInt(bookId);
-        const initialbook = getStoreData();
-            const book = initialbook.find(book => book == idInt);
-            console.log(22,book)
-            if(book ){
-                console.log(24,book)
-                saveStoreData(idInt)
-                toast.success('books ar added Listed Book')
-            }else{
-                toast.error('book alredey in  read !') 
-            } 
-    
+        const id = parseInt(bookId);
+        const readbook = books.find(book => book.bookId == id);
+      
+            if(readbook){
+                savereadbooksData(id)
+                saveStoreData(id)
+            }
              
     }
     const handalAddToWishlist = ()=>{
         const idInt = parseInt(bookId);
-            const book = books.find(book => book.bookId == idInt);
-            if (!book) {
+        const book = books.find(book => book.bookId == idInt);
+            if (book) {
                 saveStoreData(idInt)
-                toast.success('book ar added Wishlist!')
-            } toast.error('book alredey added Wishlist !')  
+            } 
     }
    
 
