@@ -49,7 +49,8 @@ const PagesToRead = () => {
    console.log(names )
     const totalPag = addbooks.map(book => book.totalPages)
     console.log(totalPag )
-  
+   
+            
     const data = [
         {
             name:names[0],
@@ -67,10 +68,17 @@ const PagesToRead = () => {
             name:names[3],
             uv:totalPag[3],  
         },
+        {
+            name:names[4],
+            uv:totalPag[4],  
+        },
+        {
+            name:names[5],
+            uv:totalPag[5],  
+        },
+      
     
     ];
-
-
 
 
     return (
