@@ -52,6 +52,16 @@ const Header = () => {
                             Pages to Read
                         </NavLink>
                     </li>
+                    <li>
+                        <NavLink
+                            to='/contact'
+                            aria-label='contact'
+                            title='contact'
+                            className={`${({ isActive }) => (isActive ? 'active' : 'default')} rounded-lg py-[12px] px-[17px] `}
+                        >
+                            contact
+                        </NavLink>
+                    </li>
                 </ul>
                 <div className="buttons lg:flex
                 hidden">

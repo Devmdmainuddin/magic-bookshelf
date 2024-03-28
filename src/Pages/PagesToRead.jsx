@@ -7,7 +7,6 @@ import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid } from 'recharts';
 
 const colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', 'red', 'pink'];
 
-
 const getPath = (x, y, width, height) => {
     return `M${x},${y + height}C${x + width / 3},${y + height} ${x + width / 2},${y + height / 3}
     ${x + width / 2}, ${y}
@@ -16,7 +15,7 @@ const getPath = (x, y, width, height) => {
   };
   const TriangleBar = (props) => {
     const { fill, x, y, width, height } = props;
-  
+
     return <path d={getPath(x, y, width, height)} stroke="none" fill={fill} />;
   };
   
@@ -44,43 +43,13 @@ const PagesToRead = () => {
 
     }, [books])
 
+ const data =addbooks.map(book=>{
+return {
+    name:book.bookName,
+    uv:book.totalPages,
+}
+})
  
-    const names = addbooks.map(book => book.bookName)
-   console.log(names )
-    const totalPag = addbooks.map(book => book.totalPages)
-    console.log(totalPag )
-   
-            
-    const data = [
-        {
-            name:names[0],
-            uv:totalPag[0],  
-        },
-        {
-            name:names[1],
-            uv:totalPag[1],  
-        },
-        {
-            name:names[2],
-            uv:totalPag[2],  
-        },
-        {
-            name:names[3],
-            uv:totalPag[3],  
-        },
-        {
-            name:names[4],
-            uv:totalPag[4],  
-        },
-        {
-            name:names[5],
-            uv:totalPag[5],  
-        },
-      
-    
-    ];
-
-
     return (
         <div>
             <h2 className='flex gap-x-1 items-center'> <span>bookname :</span>   {addbooks.map((book, idx) => <span key={idx}><a href="" >{`"${book.bookName}"`}</a></span>)}</h2>
