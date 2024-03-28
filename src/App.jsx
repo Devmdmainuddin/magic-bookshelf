@@ -19,6 +19,7 @@ function App() {
               visible={true}
               height="80"
               width="80"
+              margin="0 auto"
               ariaLabel="fidget-spinner-loading"
               wrapperStyle={{}}
               wrapperClass="fidget-spinner-wrapper"

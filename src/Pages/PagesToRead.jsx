@@ -52,9 +52,7 @@ return {
  
     return (
         <div>
-            <h2 className='flex gap-x-1 items-center'> <span>bookname :</span>   {addbooks.map((book, idx) => <span key={idx}><a href="" >{`"${book.bookName}"`}</a></span>)}</h2>
-            <h2 className='flex gap-x-1 items-center'><span>totalPages :</span> {addbooks.map((book, idx) => <span key={idx}><a href="">{`"${book.totalPages}"`}</a></span>)}</h2>
-
+           
             <BarChart
       width={900}
       height={300}

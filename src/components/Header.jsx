@@ -20,7 +20,7 @@ const Header = () => {
                        Magic Bookshelf
                     </span>
                 </Link>
-                <ul className='items-center hidden space-x-8 lg:flex gap-x-4'>
+                <ul className='items-center hidden space-x-8 lg:flex gap-x-3'>
                     <li>
                         <NavLink
                             to='/'
