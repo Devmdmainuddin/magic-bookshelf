@@ -36,19 +36,21 @@ const BooksList = () => {
         const rat = rating.rating
         const total = totalPages.totalPages
         const year = yearOfPublishing.yearOfPublishing
-        console.log(rat, year, total)
+       
 
         if (filter === 'all') {
             setaddbooks(displaybooks);
         } else if (filter === 'rating') {
             const rating = displaybooks.filter(book => book.rating === rat);
-
+            console.log(rating)
             setaddbooks(rating);
         } else if (filter === 'totalPages') {
             const totalPages = displaybooks.filter(book => book.totalPages === total);
+            console.log(totalPages)
             setaddbooks(totalPages);
         } else if (filter === 'yearOfPublishing') {
             const yearOfPublishing = displaybooks.filter(book => book.yearOfPublishing === year);
+            console.log(yearOfPublishing)
             setaddbooks(yearOfPublishing);
         }
     }
